@@ -22,8 +22,8 @@ public class CommunicationService implements Runnable {
 		try (
 				BufferedInputStream bIS = new BufferedInputStream(s.getInputStream());
 				ObjectInputStream oIS = new ObjectInputStream(bIS);
-				ObjectOutputStream oOS = new ObjectOutputStream(
-						s.getOutputStream());
+				BufferedOutputStream bOS = new BufferedOutputStream(s.getOutputStream());
+				ObjectOutputStream oOS = new ObjectOutputStream(bOS);
 				) {
 			ServerCommand sC = (ServerCommand) oIS.readObject();
 			System.out.println(sC.toString());

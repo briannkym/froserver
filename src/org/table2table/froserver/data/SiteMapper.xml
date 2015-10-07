@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.table2table.froserver.data.SiteMapper">
+  
+    
+  <select id="getCategories" resultType="string" >
+    SELECT category FROM categories;
+  </select>
+  
+  <select id="getSiteNames" resultType="string" >
+    SELECT site FROM sites;
+  </select>
+  
+  <select id="getSite" resultMap="siteWCat" >
+    SELECT site, address, information, pickup FROM sites;
+  </select>
+  
+  <resultMap id="siteWCat" type="SiteEntry">
+      <constructor>
+      <idArg column="site" javaType="String"/>
+      <arg column="address" javaType="String"/>
+      <arg column="information" javaType="String"/>
+      <arg column="pickup" javaType="bool"/>
+      <arg column="site" javaType="ArrayList<String>" select="getSiteCategories"/>
+      </constructor>    
+  </resultMap>
+  
+  
+  <select id="getSiteCategories" resultType="string" >
+    SELECT category FROM expectedcat WHERE site = #{site};
+  </select>
+  
+  
+  <select id="getRoute" resultType="string">
+      SELECT site FROM routes WHERE route = #{route} ORDER BY (stop);
+  </select>
+  
+  <select id="getRequests" resultMap="request">
+      SELECT category, pounds FROM standingrequests WHERE date=#{date};
+  </select>
+  
+  <resultMap id="request" type="RequestEntry">
+      <constructor>
+      <idArg column="category" javaType="String"/>
+      <arg column="pounds" javaType="int"/>
+      </constructor>
+  </resultMap>
+  
+  <insert id="addCategory">
+      INSERT INTO categories (category)
+      VALUES (#{category});
+  </insert>
+  
+  <insert id="addSite">
+      INSERT INTO sites (site, address, information, pickup)
+      VALUES (#{site}, #{address}, #{information}, #{pickup});
+  </insert>
+  
+  <insert id="addStop">
+      INSERT INTO routes (route, stop, site)
+      VALUES (#{route}, #{stop}, #{site});
+  </insert>
+  
+  <delete id="removeRoute">
+      DELETE FROM routes WHERE route=#{route};
+  </delete>
+  
+</mapper>

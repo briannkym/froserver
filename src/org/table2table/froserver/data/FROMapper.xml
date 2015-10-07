@@ -4,45 +4,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.table2table.froserver.data.FROMapper">
   
-    
-  <select id="getCategories" resultType="string" >
-    SELECT category FROM categories;
-  </select>
-  
-    
-  <select id="getMileage" resultType="MileageEntry" >
-    SELECT van, date, route, miles FROM mileage ORDER BY (date);
-  </select>
-  
-  <select id="getVanInfo" resultType="MileageEntry" >
-    SELECT mileage.van, max(mileage.date), mileage.route, mileage.miles vans.text 
-    FROM mileage INNER JOIN vans USING (van) WHERE van = #{van};
-  </select>
-  
-  <select id="getVanHistory" resultType="MileageEntry" >
-    SELECT van, date, route, miles FROM mileage WHERE van = #{van} ORDER BY (date);
-  </select>
-  
-  <select id="getSiteNames" resultType="string" >
-    SELECT site FROM sites;
-  </select>
-  
-  <select id="getSite" resultType="SiteEntry" >
-    SELECT site, address, information, pickup FROM sites;
-  </select>
-  
-  
-  
-  <insert id="addCategory">
-      INSERT INTO categories (category)
-      VALUES (#{category});
+
+  <insert id="addPickup">
+      INSERT INTO pickuppounds (site, date, category, pounds)    
+      VALUES (#{site}, #{date}, #{category}, #{pounds});
   </insert>
   
-  <insert id="addSite">
-      INSERT INTO sites (site, address, information, pickup)
-      VALUES (#{site}, #{address}, #{information}, #{pickup});
+  <insert id="addDropoff">
+      INSERT INTO dropoffpounds (site, date, category, pounds)
+      VALUES (#{site}, #{date}, #{category}, #{pounds})
   </insert>
-  
   
   
 </mapper>
