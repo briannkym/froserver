@@ -57,7 +57,8 @@ CREATE TABLE standingrequests (
 date date,
 category text REFERENCES categories,
 pounds int CHECK (pounds >= 0),
-PRIMARY KEY(date, category)
+description text,
+PRIMARY KEY(date, description)
 );
 
 //Use pg_dump to back up server:

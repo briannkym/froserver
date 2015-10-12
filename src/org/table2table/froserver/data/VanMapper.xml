@@ -24,11 +24,11 @@
   </resultMap>
   
   <select id="getVanInfo" resultMap="vanInfo" >
-    SELECT mileage.van, max(mileage.date), mileage.route, mileage.miles vans.text 
+    SELECT mileage.van, max(mileage.date), mileage.route, mileage.miles vans.description 
     FROM mileage INNER JOIN vans USING (van) WHERE van = #{van};
   </select>
 
-    <select id="getVans" resultType="vanInfo" >
+  <select id="getVans" resultMap="vanInfo" >
     SELECT mileage.van, max(mileage.date), mileage.route, mileage.miles vans.text 
     FROM mileage INNER JOIN vans USING (van);
   </select>

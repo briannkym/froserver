@@ -13,7 +13,7 @@
     SELECT site FROM sites;
   </select>
   
-  <select id="getSite" resultMap="siteWCat" >
+  <select id="getSites" resultMap="siteWCat" >
     SELECT site, address, information, pickup FROM sites;
   </select>
   
@@ -22,8 +22,8 @@
       <idArg column="site" javaType="String"/>
       <arg column="address" javaType="String"/>
       <arg column="information" javaType="String"/>
-      <arg column="pickup" javaType="bool"/>
-      <arg column="site" javaType="ArrayList<String>" select="getSiteCategories"/>
+      <arg column="pickup" javaType="boolean"/>
+      <arg column="site" javaType="List" select="getSiteCategories"/>
       </constructor>    
   </resultMap>
   
@@ -32,18 +32,22 @@
     SELECT category FROM expectedcat WHERE site = #{site};
   </select>
   
+  <select id="getRoutes" resultType="int">
+      SELECT DISTINCT route FROM routes ORDER BY (route); 
+  </select>
   
   <select id="getRoute" resultType="string">
       SELECT site FROM routes WHERE route = #{route} ORDER BY (stop);
   </select>
   
   <select id="getRequests" resultMap="request">
-      SELECT category, pounds FROM standingrequests WHERE date=#{date};
+      SELECT description, category, pounds FROM standingrequests WHERE date=#{date};
   </select>
   
   <resultMap id="request" type="RequestEntry">
       <constructor>
-      <idArg column="category" javaType="String"/>
+      <idArg column="description" javaType="String"/>
+      <arg column="category" javaType="String"/>
       <arg column="pounds" javaType="int"/>
       </constructor>
   </resultMap>

@@ -15,7 +15,7 @@ public class SiteEntry implements Serializable{
 	private List<String> expectedCat;
 	
 	public SiteEntry(String site, String address, String information,
-			boolean pickup, List<String> expectedCat) {
+			Boolean pickup, List expectedCat) {
 		this.site = site;
 		this.address = address;
 		this.information = information;
@@ -41,6 +41,20 @@ public class SiteEntry implements Serializable{
 	
 	public List<String> getExpectedCat() {
 		return expectedCat;
+	}
+	
+	@Override
+	public String toString(){
+		String s;
+		if(pickup){
+			s = "Pickup";
+		} else {
+			s = "Dropoff";
+		}
+		s+= " site, " + site + ": " + address +". ";
+		s+= information + ".\n";
+		s+= expectedCat.toString();
+		return s;
 	}
 	
 }

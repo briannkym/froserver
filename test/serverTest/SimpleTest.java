@@ -5,7 +5,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import org.table2table.froserver.model.ServerCommand;
+import org.table2table.froserver.service.IServerCommand;
 
 public class SimpleTest {
 	public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class SimpleTest {
 				BufferedOutputStream bOS = new BufferedOutputStream(socket.getOutputStream());
 				ObjectOutputStream oOS = new ObjectOutputStream(
 						bOS);) {
-			oOS.writeObject(new ServerCommand("Hello World!"));
+			oOS.writeObject(new IServerCommand("Hello World!"));
 		} catch (UnknownHostException e) {
 			System.err.println("Don't know about host " + hostName);
 			System.exit(1);

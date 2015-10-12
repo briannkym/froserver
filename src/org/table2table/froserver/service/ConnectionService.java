@@ -1,16 +1,20 @@
 package org.table2table.froserver.service;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import org.table2table.froserver.model.IFRODatabase;
 
-public class ConnectionService implements Runnable {
+
+public class ConnectionService implements Runnable, Closeable {
 	private int portNumber;
 	private volatile boolean running = true;
-
-	public ConnectionService(int portNumber) {
+	private IFRODatabase database;
+	public ConnectionService(int portNumber, IFRODatabase database) {
 		this.portNumber = portNumber;
+		this.database = database;
 	}
 
 	@Override
@@ -19,7 +23,7 @@ public class ConnectionService implements Runnable {
 		try (ServerSocket serverSocket = new ServerSocket(portNumber);) {
 			while (running) {
 				Socket clientSocket = serverSocket.accept();
-				CommunicationService cS = new CommunicationService(clientSocket);
+				CommunicationService cS = new CommunicationService(clientSocket, database);
 				new Thread(cS).run();
 				
 			}
@@ -31,7 +35,8 @@ public class ConnectionService implements Runnable {
 		}
 	}
 
-	public void stop() {
+	@Override
+	public void close() {
 		running = false;
 	}
 }
