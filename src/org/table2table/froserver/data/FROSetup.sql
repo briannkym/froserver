@@ -11,7 +11,6 @@ miles int,
 PRIMARY KEY(van, date, route)
 );
 
-
 CREATE TABLE sites (
 site text PRIMARY KEY,
 address text,
@@ -35,7 +34,6 @@ site text REFERENCES sites,
 category text REFERENCES categories,
 PRIMARY KEY(site, category)
 );
-
 
 CREATE TABLE pickuppounds (
 site text REFERENCES sites,

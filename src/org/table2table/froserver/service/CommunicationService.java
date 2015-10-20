@@ -1,7 +1,5 @@
 package org.table2table.froserver.service;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -25,13 +23,9 @@ public class CommunicationService implements Runnable, Closeable {
 
 	@Override
 	public void run() {
-		try (BufferedInputStream bIS = new BufferedInputStream(
-				s.getInputStream());
-				BufferedOutputStream bOS = new BufferedOutputStream(
-						s.getOutputStream());) {
-
-			oIS = new ObjectInputStream(bIS);
-			oOS = new ObjectOutputStream(bOS);
+		try {
+			oIS = new ObjectInputStream(s.getInputStream());
+			oOS = new ObjectOutputStream(s.getOutputStream());
 			while (!close) {
 				IServerCommand sC = (IServerCommand) oIS.readObject();
 				try {
@@ -68,7 +62,6 @@ public class CommunicationService implements Runnable, Closeable {
 	public ObjectOutputStream getOutputStream() {
 		return oOS;
 	}
-
 
 	@Override
 	public void close() {

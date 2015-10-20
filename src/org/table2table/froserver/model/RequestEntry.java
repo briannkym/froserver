@@ -30,4 +30,9 @@ public class RequestEntry implements Serializable{
 	public int getPounds() {
 		return pounds;
 	}
+	
+	@Override
+	public String toString(){
+		return pounds + " pounds of " + category+": " + description;
+	}
 }

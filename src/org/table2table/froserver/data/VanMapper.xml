@@ -24,12 +24,12 @@
   </resultMap>
   
   <select id="getVanInfo" resultMap="vanInfo" >
-    SELECT mileage.van, max(mileage.date), mileage.route, mileage.miles vans.description 
+    SELECT mileage.van, MAX(mileage.date) OVER (PARTITION BY mileage.van), mileage.route, mileage.miles, vans.description 
     FROM mileage INNER JOIN vans USING (van) WHERE van = #{van};
   </select>
 
   <select id="getVans" resultMap="vanInfo" >
-    SELECT mileage.van, max(mileage.date), mileage.route, mileage.miles vans.text 
+    SELECT vans.van, MAX(mileage.date) OVER (PARTITION BY mileage.van), mileage.route, mileage.miles, vans.description 
     FROM mileage INNER JOIN vans USING (van);
   </select>
     

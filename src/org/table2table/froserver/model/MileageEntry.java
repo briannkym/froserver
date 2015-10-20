@@ -50,4 +50,11 @@ public class MileageEntry implements Serializable {
 	public String getDescription() {
 		return description;
 	}
+
+	@Override
+	public String toString() {
+		return "Van #" + van + ", mileage: " + miles + "; " + description
+				+ "\n" + "Last updated on trip " + route + " on date "
+				+ date.toString() + ".";
+	}
 }
