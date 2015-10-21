@@ -2,27 +2,49 @@ package org.table2table.froserver.model;
 
 import java.sql.Date;
 
+/**
+ * 
+ * @author Brian Nakayama
+ *
+ */
 public class PoundEntry {
 
 	private String site;
 	private Date d;
 	private String category;
 	private int pounds;
-	boolean pickup = false;
+	private int route = 0;
+	private boolean pickup = false;
 	
+	/**
+	 * Constructor for a pickup entry. Use this to enter pickup records into the database.
+	 * @param site The site (must match a site in the database)
+	 * @param d The date (SQL Date)
+	 * @param category The category (must match a category in the database)
+	 * @param pounds The pounds (>0)
+	 */
 	public PoundEntry(String site, Date d, String category, int pounds){
 		this.site = site;
 		this.d = d;
 		this.category = category;
 		this.pounds = pounds;
+		this.pickup = true;
 	}
 	
-	public PoundEntry(String site, Date d, String category, int pounds, boolean pickup){
+	/**
+	 * Constructor for a dropoff entry. Use this to enter dropoff records into the database.
+	 * @param site The site (must match a site in the database)
+	 * @param d The date (SQL Date)
+	 * @param route The route (The tuple (route,site) must exist in the routes table of the database)
+	 * @param category The category (must match a category in the database)
+	 * @param pounds The pounds (>0)
+	 */
+	public PoundEntry(String site, Date d, int route, String category, int pounds){
 		this.site = site;
 		this.d = d;
+		this.route = route;
 		this.category = category;
 		this.pounds = pounds;
-		this.pickup = pickup;
 	}
 
 	public String getSite() {
@@ -35,6 +57,10 @@ public class PoundEntry {
 
 	public String getCategory() {
 		return category;
+	}
+	
+	public int getRoute() {
+		return route;
 	}
 
 	public int getPounds() {

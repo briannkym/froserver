@@ -22,6 +22,11 @@ import org.table2table.froserver.service.GetRoutesCommand;
 import org.table2table.froserver.service.GetSitesCommand;
 import org.table2table.froserver.service.GetVansCommand;
 
+/**
+ * Example code for retrieving information from the database.
+ * @author Brian Nakayama
+ *
+ */
 public class SimpleTest {
 	public static void main(String[] args) {
 		String hostName = "127.0.0.1";

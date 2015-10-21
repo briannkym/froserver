@@ -1,9 +1,13 @@
 package org.table2table.froserver.service;
 
 import java.io.IOException;
-
 import org.table2table.froserver.model.IFRODatabase;
 
+/**
+ * 
+ * @author Brian Nakayama
+ *
+ */
 public class GetCategoriesCommand implements IServerCommand{
 
 	/**

@@ -4,9 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class SiteEntry implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private String site;
 	private String address;
@@ -14,6 +12,14 @@ public class SiteEntry implements Serializable{
 	private boolean pickup;
 	private List<String> expectedCat;
 	
+	/**
+	 * Construct a simple java object for sites.
+	 * @param site The site's name 
+	 * @param address The address
+	 * @param information Information specific to this site.
+	 * @param pickup True for pickups, false for dropoffs.
+	 * @param expectedCat A list of the expected categories for this site.
+	 */
 	public SiteEntry(String site, String address, String information,
 			Boolean pickup, List expectedCat) {
 		this.site = site;

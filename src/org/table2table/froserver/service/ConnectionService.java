@@ -7,7 +7,11 @@ import java.net.Socket;
 
 import org.table2table.froserver.model.IFRODatabase;
 
-
+/**
+ * 
+ * @author Brian Nakayama
+ *
+ */
 public class ConnectionService implements Runnable, Closeable {
 	private int portNumber;
 	private volatile boolean running = true;

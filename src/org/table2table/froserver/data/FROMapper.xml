@@ -11,8 +11,8 @@
   </insert>
   
   <insert id="addDropoff">
-      INSERT INTO dropoffpounds (site, date, category, pounds)
-      VALUES (#{site}, #{date}, #{category}, #{pounds})
+      INSERT INTO dropoffpounds (site, date, route, category, pounds)
+      VALUES (#{site}, #{date}, #{route}, #{category}, #{pounds});
   </insert>
   
   

@@ -6,6 +6,11 @@ import java.util.Calendar;
 
 import org.table2table.froserver.model.IFRODatabase;
 
+/**
+ * 
+ * @author Brian Nakayama
+ *
+ */
 public class GetRequestsCommand implements IServerCommand{
 
 	/**

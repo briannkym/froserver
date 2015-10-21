@@ -4,6 +4,11 @@ import java.io.IOException;
 
 import org.table2table.froserver.model.IFRODatabase;
 
+/**
+ * 
+ * @author Brian Nakayama
+ *
+ */
 public class CloseCommand implements IServerCommand{
 
 	/**

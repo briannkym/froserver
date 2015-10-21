@@ -2,6 +2,11 @@ package org.table2table.froserver.model;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * @author Brian Nakayama
+ *
+ */
 public class RequestEntry implements Serializable{
 	/**
 	 * 

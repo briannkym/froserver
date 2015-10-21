@@ -5,6 +5,11 @@ import java.io.Serializable;
 
 import org.table2table.froserver.model.IFRODatabase;
 
+/**
+ * 
+ * @author Brian Nakayama
+ *
+ */
 public interface IServerCommand extends Serializable{
 	
 	public void accept(IFRODatabase i, CommunicationService c) throws IOException ;

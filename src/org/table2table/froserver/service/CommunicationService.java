@@ -8,6 +8,11 @@ import java.net.Socket;
 
 import org.table2table.froserver.model.IFRODatabase;
 
+/**
+ * 
+ * @author Brian Nakayama
+ *
+ */
 public class CommunicationService implements Runnable, Closeable {
 
 	private Socket s;

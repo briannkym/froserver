@@ -4,17 +4,27 @@ import java.sql.Date;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * @author Brian Nakayama
+ *
+ */
 public class MileageEntry implements Serializable {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private int van;
 	private Date date;
 	private int route;
 	private int miles;
 	private String description = "";
-
+	
+	/**
+	 * 
+	 * @param van
+	 * @param date
+	 * @param route
+	 * @param miles
+	 */
 	public MileageEntry(Integer van, Date date, Integer route, Integer miles) {
 		this.van = van;
 		this.date = date;

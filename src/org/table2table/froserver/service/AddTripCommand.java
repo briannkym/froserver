@@ -8,6 +8,11 @@ import org.table2table.froserver.model.IFRODatabase;
 import org.table2table.froserver.model.MileageEntry;
 import org.table2table.froserver.model.PoundEntry;
 
+/**
+ * 
+ * @author Brian Nakayama
+ *
+ */
 public class AddTripCommand implements IServerCommand {
 
 	/**

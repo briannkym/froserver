@@ -127,7 +127,7 @@ public class FRODatabaseBatis implements IFRODatabase {
 				t.addPickup(p.getSite(), p.getD(), p.getCategory(),
 						p.getPounds());
 			} else {
-				t.addDropoff(p.getSite(), p.getD(), p.getCategory(),
+				t.addDropoff(p.getSite(), p.getD(), p.getRoute(), p.getCategory(),
 						p.getPounds());
 			}
 			session.commit();
@@ -153,7 +153,7 @@ public class FRODatabaseBatis implements IFRODatabase {
 					t.addPickup(p.getSite(), p.getD(), p.getCategory(),
 							p.getPounds());
 				} else {
-					t.addDropoff(p.getSite(), p.getD(), p.getCategory(),
+					t.addDropoff(p.getSite(), p.getD(), p.getRoute(), p.getCategory(),
 							p.getPounds());
 				}
 			}

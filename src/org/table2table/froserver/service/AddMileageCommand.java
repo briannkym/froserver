@@ -5,6 +5,11 @@ import java.io.IOException;
 import org.table2table.froserver.model.IFRODatabase;
 import org.table2table.froserver.model.MileageEntry;
 
+/**
+ * 
+ * @author Brian Nakayama
+ *
+ */
 public class AddMileageCommand implements IServerCommand {
 
 	/**

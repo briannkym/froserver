@@ -2,6 +2,11 @@ package org.table2table.froserver.service;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * @author Brian Nakayama
+ *
+ */
 public class ClientMessage implements Serializable{
 	
 	/**
