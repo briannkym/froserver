@@ -29,13 +29,17 @@ public class ConnectionService implements Runnable, Closeable {
 				Socket clientSocket = serverSocket.accept();
 				CommunicationService cS = new CommunicationService(clientSocket, database);
 				new Thread(cS).run();
-				
 			}
 		} catch (IOException e) {
 			System.out
-					.println("Exception caught when trying to listen on port "
+					.println("I/O Exception caught when trying to listen on port "
 							+ portNumber + " or listening for a connection");
 			System.out.println(e.getMessage());
+		} catch (Exception e) {
+			System.out
+			.println("Other exception caught when trying to listen on port "
+					+ portNumber + " or listening for a connection");
+	System.out.println(e.getMessage());
 		}
 	}
 

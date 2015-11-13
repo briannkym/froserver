@@ -43,9 +43,9 @@ public class CommunicationService implements Runnable, Closeable {
 				}
 			}
 		} catch (IOException e) {
-			System.out.println("Error on port " + s.getPort());
+			System.out.println("Error on port " + s.getPort()+" ");
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
