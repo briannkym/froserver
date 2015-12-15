@@ -162,10 +162,10 @@ public class FRODatabaseBatis implements IFRODatabase {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ClientMessage(
-					"Failed to enter trip on" + m.getDate() + "  into database.",
+					"Failed to enter trip on " + m.getDate() + " into database.",
 					false);
 		}
-		return new ClientMessage("Trip on" + m.getDate() + " entered.",
+		return new ClientMessage("Trip on " + m.getDate() + " entered.",
 				true);
 	}
 }

@@ -28,6 +28,7 @@ public class CommunicationService implements Runnable, Closeable {
 
 	@Override
 	public void run() {
+		System.out.println("Opening a connection with " + s.getInetAddress().getCanonicalHostName() + " at " + s.getInetAddress().getHostAddress());
 		try {
 			oIS = new ObjectInputStream(s.getInputStream());
 			oOS = new ObjectOutputStream(s.getOutputStream());

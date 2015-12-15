@@ -7,12 +7,12 @@
 
   <insert id="addPickup">
       INSERT INTO pickuppounds (site, date, category, pounds)    
-      VALUES (#{site}, #{date}, #{category}, #{pounds});
+      VALUES (#{param1}, #{param2}, #{param3}, #{param4});
   </insert>
   
   <insert id="addDropoff">
       INSERT INTO dropoffpounds (site, date, route, category, pounds)
-      VALUES (#{site}, #{date}, #{route}, #{category}, #{pounds});
+      VALUES (#{param1}, #{param2}, #{param3}, #{param4}, #{param5});
   </insert>
   
   

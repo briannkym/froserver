@@ -29,7 +29,7 @@ import org.table2table.froserver.service.GetVansCommand;
  */
 public class SimpleTest {
 	public static void main(String[] args) {
-		String hostName = "127.0.0.1";
+		String hostName = "10.0.2.15";
 		int portNumber = 2000;
 
 		try (Socket socket = new Socket(hostName, portNumber);
