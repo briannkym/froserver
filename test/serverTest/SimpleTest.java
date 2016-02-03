@@ -11,9 +11,12 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Scanner;
 import java.util.Set;
 
-import org.table2table.froserver.model.*;
+import org.table2table.froserver.model.MileageEntry;
+import org.table2table.froserver.model.RequestEntry;
+import org.table2table.froserver.model.SiteEntry;
 import org.table2table.froserver.service.ClientMessage;
 import org.table2table.froserver.service.CloseCommand;
 import org.table2table.froserver.service.GetCategoriesCommand;
@@ -29,8 +32,11 @@ import org.table2table.froserver.service.GetVansCommand;
  */
 public class SimpleTest {
 	public static void main(String[] args) {
-		String hostName = "127.0.0.1";
-		int portNumber = 2000;
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Enter IP Address:");
+		String hostName = keyboard.nextLine();
+		
+		int portNumber = org.table2table.froserver.Main.portNumber;
 
 		try (Socket socket = new Socket(hostName, portNumber);
 				ObjectOutputStream oOS = new ObjectOutputStream(
