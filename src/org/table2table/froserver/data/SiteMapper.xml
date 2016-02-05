@@ -64,7 +64,7 @@
   
   <insert id="addStop">
       INSERT INTO routes (route, stop, site)
-      VALUES (#{route}, #{stop}, #{site});
+      VALUES (#{param1}, #{param2}, #{param3});
   </insert>
   
   <delete id="removeRoute">

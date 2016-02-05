@@ -28,6 +28,7 @@ public class CommunicationService implements Runnable, Closeable {
 
 	@Override
 	public void run() {
+		System.out.println("Opening a connection with " + s.getInetAddress().getCanonicalHostName() + " at " + s.getInetAddress().getHostAddress());
 		try {
 			oIS = new ObjectInputStream(s.getInputStream());
 			oOS = new ObjectOutputStream(s.getOutputStream());
@@ -43,9 +44,9 @@ public class CommunicationService implements Runnable, Closeable {
 				}
 			}
 		} catch (IOException e) {
-			System.out.println("Error on port " + s.getPort());
+			System.out.println("Error on port " + s.getPort()+" ");
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {

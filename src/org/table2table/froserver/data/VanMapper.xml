@@ -45,12 +45,12 @@
   
   <insert id="addVan">
       INSERT INTO vans (van, description)
-      VALUES (#{van}, #{description});
+      VALUES (#{param1}, #{param2});
   </insert>
   
-  <insert id="addMileage">
+  <insert id="addMileage" parameterType="map">
       INSERT INTO mileage (van, date, route, miles)
-      VALUES (#{van}, #{date}, #{category}, #{miles});
+      VALUES (#{param1}, #{param2}, #{param3}, #{param4});
   </insert>
   
 </mapper>

@@ -8,12 +8,13 @@ import java.sql.Date;
  * @author Brian Nakayama
  *
  */
-public class PoundEntry implements Serializable {
+public class PoundEntry implements Serializable{
 
 	/**
-	 * 
+	 * Default ID added December 9th, 2015.
 	 */
 	private static final long serialVersionUID = 1L;
+
 	private String site;
 	private Date d;
 	private String category;
