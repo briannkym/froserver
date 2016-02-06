@@ -9,7 +9,6 @@ import org.table2table.froserver.model.IFRODatabase;
  *
  */
 public class GetCategoriesCommand implements IServerCommand{
-
 	/**
 	 * 
 	 */
